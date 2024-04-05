@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import ProductCard from "../../components/ProductCard";
 import { useDispatch, useSelector } from "react-redux";
-import { toggle, toggleBrands } from "../../features/filter/filterSlice";
+import { toggleBrands } from "../../features/filter/filterSlice";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
-  console.log(products, "setProducts");
 
   const dispatch = useDispatch();
   const filter = useSelector((state) => state.filter);
@@ -17,65 +16,41 @@ const ProductList = () => {
       .then((data) => setProducts(data.products));
   }, []);
 
-  const activeClass = "text-white  bg-indigo-500 border-white";
-
-  //
-
   let content;
 
   if (products.length) {
-    content = products.map((product) => (
-      <ProductCard key={product.model} product={product} />
-    ));
-  }
-
-  if (products.length && (filter.stock || filter.brand.length)) {
     content = products
       .filter((product) => {
-        if (stock) {
-          return product.status === true;
+        if (brand.length) {
+          return brand.includes(product.brand);
         }
-        return product;
-      })
-      .filter((product) => {
-        if (filter.brand.length) {
-          return filter.brand.includes(product.brand);
-        }
-        return product;
+        return true;
       })
       .map((product) => <ProductCard key={product.model} product={product} />);
   }
-  //
+
+  const handleBrandToggle = (selectedBrand) => {
+    dispatch(toggleBrands(selectedBrand));
+  };
 
   return (
     <div className="max-w-7xl gap-14 mx-auto my-10">
       <div className="mb-10 flex justify-end gap-5">
-        <button
-          className={`border px-3 py-2 rounded-full font-semibold ${activeClass} `}
-          onClick={() => dispatch(toggle())}
+        <select
+          className="border px-3 py-2 rounded-full font-semibold"
+          onChange={(e) => handleBrandToggle(e.target.value)}
         >
-          In Stock
-        </button>
-        <button
-          className={`border px-3 py-2 rounded-full font-semibold`}
-          onClick={() => dispatch(toggleBrands("Apple"))}
-        >
-          Apple
-        </button>
-        <button
-          className={`border px-3 py-2 rounded-full font-semibold`}
-          onClick={() => dispatch(toggleBrands("Samsung"))}
-        >
-          Sansung
-        </button>
+          <option value="">All Brands</option>
+          <option value="Apple">Apple</option>
+          <option value="Samsung">Samsung</option>
+          <option value="OPPO">OPPO</option>
+          <option value="Huawei">Huawei</option>
+          <option value="Microsoft Surface">Microsoft</option>
+          <option value="Infinix">Infinix</option>
+          {/* Add more options for other brands if needed */}
+        </select>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14">
-        {/* {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
-          // <p>product:{product.length}</p>
-        ))} */}
-
-        {/* <p>product.length {product.length}</p> */}
         {content}
       </div>
     </div>

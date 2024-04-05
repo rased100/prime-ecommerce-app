@@ -14,11 +14,8 @@ const filterSlice = createSlice({
       state.stock = !state.stock;
     },
     toggleBrands: (state, action) => {
-      if (!state.brand.includes(action.payload)) {
-        state.brand.push(action.payload);
-      } else {
-        state.brand = state.brand.filter((brand) => brand !== action.payload);
-      }
+      const selectedBrand = action.payload;
+      state.brand = selectedBrand !== state.brand ? selectedBrand : "";
     },
   },
 });
