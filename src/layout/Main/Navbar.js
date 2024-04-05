@@ -27,6 +27,9 @@ const Navbar = () => {
         <li>
           <Link to="/checkout">Checkout</Link>
         </li>
+        <li>
+          <Link to="/dashboard">Dashboard</Link>
+        </li>
         <Link to="/cart">
           <li title="cart" className="bg-indigo-500 p-2 rounded-full">
             <BsFillCartFill className="text-white " />
