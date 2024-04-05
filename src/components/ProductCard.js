@@ -17,6 +17,7 @@ const ProductCard = ({ product }) => {
     brand,
     category,
     thumbnail,
+    quantity,
   } = product;
   const dispatch = useDispatch();
   const { pathname } = useLocation();
@@ -24,7 +25,7 @@ const ProductCard = ({ product }) => {
     <div className="shadow-lg relative rounded-3xl border p-3 flex flex-col text-indigo-900">
       {pathname.includes("cart") && (
         <div className="rounded-full grid place-items-center absolute top-2 right-2 bg-indigo-500  h-8 w-8 font-bold ">
-          <p>p {product.stock} </p>
+          <p>{product.quantity} </p>
         </div>
       )}
       <div className="h-52 w-52 mx-auto">
@@ -53,14 +54,14 @@ const ProductCard = ({ product }) => {
           </button>
         )}
 
-        {!pathname.includes("cart") && (
+        {/* {!pathname.includes("cart") && (
           <button
             title="Add to wishlist"
             className="bg-indigo-500  py-1 px-2 rounded-full"
           >
             <BiListPlus className="text-white" />
           </button>
-        )}
+        )} */}
         {pathname.includes("cart") && (
           <button
             title="Remove"
