@@ -5,18 +5,16 @@ import { removeFromCart } from "../../features/cart/cartSlice";
 
 const Checkout = () => {
   const dispatch = useDispatch();
-  const cartItems = useSelector((state) => state.cart.cart); // Access cart items from your cart slice
+  const cartItems = useSelector((state) => state.cart.cart);
 
   const handleRemoveFromCart = (productId) => {
     dispatch(removeFromCart(productId));
   };
 
   const calculateTotal = () => {
-    // Implement logic to calculate total price based on cart items and their prices
-    // This is a placeholder, replace with your actual calculation
     let totalPrice = 0;
     cartItems.forEach((item) => {
-      totalPrice += item.quantity * item.price; // Assuming a 'price' property on each item
+      totalPrice += item.quantity * item.price;
     });
     return totalPrice;
   };

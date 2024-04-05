@@ -59,7 +59,7 @@ const Sidebar = () => {
             <option value="Microsoft Surface">Microsoft</option>
           </select>
         </li>
-        {/* Filter UI elements here */}
+        {/* Filter UI elements  */}
         <li className="flex justify-start py-2">
           <select
             className="border w-full px-3 py-2 rounded-md font-semibold"
@@ -74,7 +74,7 @@ const Sidebar = () => {
             <option value="groceries">Groceries</option>
           </select>
         </li>
-        {/* Filter UI elements here */}
+        {/* Filter UI elements  */}
         <li className="flex justify-start py-2">
           <select
             className="border w-full px-3 py-2 rounded-md font-semibold"
@@ -89,7 +89,7 @@ const Sidebar = () => {
             <option value="5">5 Stars Only</option>
           </select>
         </li>
-        {/* Filter UI elements here */}
+        {/* Filter UI elements  */}
         <li className="flex justify-start py-2">
           <select
             className="border w-full py-2 rounded-md font-semibold"
@@ -104,7 +104,7 @@ const Sidebar = () => {
             <option value="3000+">Over $3,000</option>
           </select>
         </li>
-        {/* Filter UI elements here */}
+        {/* Filter UI elements  */}
         <li className="flex justify-start ml-4 mt-10">
           <Link to="/"> Back to Home </Link>
         </li>

@@ -12,7 +12,7 @@ const ProductList = () => {
   const [products, setProducts] = useState([]);
   const dispatch = useDispatch();
   const filter = useSelector((state) => state.filter);
-  const { brand, category, rating, price } = filter; // Access rating state
+  const { brand, category, rating, price } = filter;
 
   useEffect(() => {
     fetch("https://dummyjson.com/products?skip=0&limit=100")
@@ -25,7 +25,6 @@ const ProductList = () => {
   if (products.length) {
     content = products
       .filter((product) => {
-        // Combine brand, category, rating, and price filters
         if (brand.length && !brand.includes(product.brand)) {
           return false;
         }

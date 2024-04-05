@@ -2,29 +2,28 @@ import React, { useState, useEffect } from "react";
 import ProductCard from "../../components/ProductCard";
 
 const Home = () => {
-  const [products, setProducts] = useState([]); // State for all products
-  const [filteredProducts, setFilteredProducts] = useState([]); // State for filtered products
-  const [searchTerm, setSearchTerm] = useState(""); // State for search term
+  const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     fetch("https://dummyjson.com/products?skip=0&limit=100")
       .then((res) => res.json())
-      .then((data) => setProducts(data.products)); // Fetch and store all products
+      .then((data) => setProducts(data.products));
   }, []);
 
   const handleSearch = (event) => {
-    setSearchTerm(event.target.value.toLowerCase()); // Lowercase for case-insensitive search
+    setSearchTerm(event.target.value.toLowerCase());
   };
 
   useEffect(() => {
-    // Filter products based on search term in title
     const filteredResults = searchTerm
       ? products.filter((product) =>
           product.title?.toLowerCase().includes(searchTerm)
         )
-      : products; // Display all products if searchTerm is empty
+      : products;
     setFilteredProducts(filteredResults);
-  }, [products, searchTerm]); // Re-run when products or search term changes
+  }, [products, searchTerm]);
 
   return (
     <div className="max-w-7xl gap-14 mx-auto my-10">
