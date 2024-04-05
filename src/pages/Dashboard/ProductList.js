@@ -69,58 +69,6 @@ const ProductList = () => {
   };
   return (
     <div className="max-w-7xl gap-14 mx-auto my-10">
-      <div className="mb-10 flex justify-end gap-5">
-        <select
-          className="border px-3 py-2 rounded-full font-semibold"
-          onChange={(e) => handleBrands(e.target.value)}
-        >
-          <option>Select Brands</option>
-          <option value="Apple">Apple</option>
-          <option value="Samsung">Samsung</option>
-          <option value="OPPO">OPPO</option>
-          <option value="Huawei">Huawei</option>
-          <option value="Microsoft Surface">Microsoft</option>
-        </select>
-      </div>
-      <div className="mb-10 flex justify-end gap-5">
-        <select
-          className="border px-3 py-2 rounded-full font-semibold"
-          onChange={(e) => handleCategories(e.target.value)}
-        >
-          <option>Select Categories</option>
-          <option value="smartphones">Smartphones</option>
-          <option value="laptops">Laptops</option>
-          <option value="fragrances">Fragrances</option>
-          <option value="skincare">Skincare</option>
-          <option value="groceries">Groceries</option>
-        </select>
-      </div>
-      <div className="mb-10 flex justify-end gap-5">
-        <select
-          className="border px-3 py-2 rounded-full font-semibold"
-          onChange={(e) => handleRatingFilter(e.target.value)}
-        >
-          <option>Select Rating</option>
-          <option value="1">1 Star Above</option>
-          <option value="2">2 Stars Above</option>
-          <option value="3">3 Stars Above</option>
-          <option value="4">4 Stars Above</option>
-          <option value="5">5 Stars Only</option>
-        </select>
-      </div>
-      <div className="mb-10 flex justify-end gap-5">
-        <select
-          className="border px-3 py-2 rounded-full font-semibold"
-          onChange={handlePriceFilter}
-        >
-          <option>Select Price Range</option>
-          <option value="0-500">Under $500</option>
-          <option value="500-1000">$500 - $1000</option>
-          <option value="1000-1500">$1000 - $1500</option>
-          <option value="1500-2000">$1500 - $2000</option>
-          <option value="3000+">Over $3,000</option>
-        </select>
-      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14">
         {content}
       </div>
